@@ -1,0 +1,416 @@
+/* style.css - Shamba El Niño Dashboard Styling */
+
+/* --- 1. Global Reset & Variables --- */
+:root {
+    --primary-green: #2e7d32;
+    --light-green: #e8f5e9;
+    --dark-earth: #3e2723;
+    --sand-bg: #fbe9e7;
+    --alert-amber: #ef6c00;
+    --alert-light: #fff3e0;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --border-radius: 8px;
+    --text-main: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6f4;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- 2. Typography & Structural Layouts --- */
+.dashboard-header {
+    background-color: var(--primary-green);
+    color: #ffffff;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    border-bottom: 5px solid var(--dark-earth);
+}
+
+.dashboard-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* --- 3. Base Reusable Card Styling --- */
+.card {
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--card-shadow);
+    border-left: 5px solid #ccc;
+}
+
+/* --- 4. Section Specific Overrides --- */
+.select-card {
+    border-left-color: var(--primary-green);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.select-card label {
+    font-weight: 600;
+    color: var(--dark-earth);
+}
+
+select, button {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: var(--border-radius);
+    background-color: #ffffff;
+    outline: none;
+}
+
+select:focus {
+    border-color: var(--primary-green);
+}
+
+button {
+    background-color: var(--primary-green);
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #1b5e20;
+}
+
+/* Banner Card styling */
+.banner-card {
+    background-color: var(--light-green);
+    border-left-color: var(--primary-green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.badge {
+    background-color: var(--primary-green);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* --- 5. The Responsive Layout Grid --- */
+.advisory-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .advisory-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Make the harvest safety alert span both columns */
+    .alert-card {
+        grid-column: span 2;
+    }
+}
+
+/* Custom Card Variances */
+.advisory-card h3 {
+    color: var(--dark-earth);
+    margin-bottom: 0.8rem;
+    font-size: 1.15rem;
+}
+
+.highlight-card {
+    background-color: #fffde7;
+    border-left-color: #fbc02d;
+}
+
+.alert-card {
+    background-color: var(--alert-light);
+    border-left-color: var(--alert-amber);
+}
+
+/* Lists styling */
+.styled-list {
+    list-style-type: none;
+    padding-left: 0.2rem;
+}
+
+.styled-list li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+/* --- 6. Quick Tool Simulator Panels --- */
+.simulator-card {
+    border-left-color: #0288d1;
+    background-color: #e1f5fe;
+}
+
+.simulator-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.simulator-card form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.simulation-result {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: white;
+    border-radius: var(--border-radius);
+    border: 1px solid #b3e5fc;
+}
+
+/* --- 7. Utility Styles --- */
+.hidden {
+    display: none !important;
+}
+
+.dashboard-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.9rem;
+    color: #666666;
+    margin-top: 3rem;
+}
+
+/* Style for the print button on the screen */
+.print-btn {
+    background-color: var(--dark-earth);
+    width: auto;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+}
+.print-btn:hover {
+    background-color: #271714;
+}
+
+/* --- CSS PRINT MEDIA ENGINE --- */
+@media print {
+    /* Hide all web components that are unnecessary on paper */
+    .control-panel, 
+    .simulator-panel, 
+    .print-btn, 
+    .dashboard-footer {
+        display: none !important;
+    }
+
+    body {
+        background-color: #ffffff;
+        color: #000000;
+        font-size: 12pt;
+    }
+
+    .dashboard-header {
+        background-color: transparent !important;
+        color: #000000 !important;
+        border-bottom: 2px solid #000000;
+        padding: 1rem 0;
+    }
+
+    .dashboard-container {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .card {
+        border: 1px solid #cccccc !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+    
+    .advisory-grid {
+        display: block; /* Fallback to standard block stack for paper layout engines */
+    }
+}
+
+/* Navigation Tab System Styles */
+.dashboard-tabs {
+    display: flex;
+    justify-content: center;
+    background-color: var(--dark-earth);
+    gap: 2px;
+}
+
+.tab-link {
+    background-color: transparent;
+    border-radius: 0;
+    color: #e0e0e0;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.tab-link:hover, .tab-link.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-bottom: 4px solid var(--light-green);
+}
+
+/* Input boxes style */
+input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #cccccc;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+.weather-card {
+    border-left-color: #0288d1;
+}
+
+.weather-output {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: #fff;
+    border: 2px dashed #0288d1;
+    border-radius: var(--border-radius);
+}
+
+/* --- 8. Pure CSS Data Chart Styles --- */
+.chart-card {
+    border-left-color: var(--alert-amber);
+}
+
+.bar-chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    margin: 1rem 0;
+}
+
+.chart-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Row separation on screens wider than mobile */
+@media (min-width: 600px) {
+    .chart-row {
+        flex-direction: row;
+        align-items: center;
+    }
+    .zone-label {
+        width: 150px;
+        flex-shrink: 0;
+    }
+}
+
+.bars-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background: rgba(0, 0, 0, 0.02);
+    padding: 0.5rem;
+    border-radius: 6px;
+    border-left: 2px solid #ccc;
+}
+
+/* Individual Bar Element Layout definitions */
+.bar {
+    display: flex;
+    align-items: center;
+    height: 28px;
+    width: 0%; /* Initial state for loading animation sequence */
+    max-width: var(--bar-width); /* Sets width safely to custom inline properties */
+    border-radius: 4px;
+    transition: width 1.2s cubic-bezier(0.1, 1, 0.1, 1);
+    animation: slideInBar 1.5s forwards ease-out;
+    padding-left: 0.6rem;
+    box-sizing: border-box;
+}
+
+.bar-normal {
+    background: linear-gradient(90deg, #90caf9, #42a5f5);
+    color: #0d47a1;
+}
+
+.bar-surge {
+    background: linear-gradient(90deg, #ffb74d, #e65100);
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.bar-text {
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+/* Legend items styles */
+.chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed #dddddd;
+    font-size: 0.85rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.normal-color { background-color: #42a5f5; }
+.surge-color { background-color: #e65100; }
+
+/* CSS Keyframes to safely drive expansion width on page activation */
+@keyframes slideInBar {
+    to {
+        width: 100%;
+    }
+}
+
+/* Print Overrides: Make sure graphs show up elegantly as structural line frames in PDFs */
+@media print {
+    .chart-panel {
+        page-break-inside: avoid;
+    }
+    .bar {
+        border: 1px solid #333 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .bar-normal { background: #e0e0e0 !important; }
+    .bar-surge { background: #757575 !important; }
+}
