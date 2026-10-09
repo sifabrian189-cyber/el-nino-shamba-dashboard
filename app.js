@@ -70,6 +70,20 @@ const agricultureData = {
         plantingTime: "Optimal Window: October 1st – October 15th. Avoid planting too late into November due to dropping temperatures.",
         landPrep: "Build or repair bench terraces. Plant Napier grass or Vetiver grass along contour lines to anchor topsoil against heavy El Niño downpours.",
         harvestMethod: "Utilize plastic crates for delicate vegetable harvesting to avoid bruising in wet weather. Ensure immediate transport to charcoal-coolers or shaded transit areas."
+    },
+    "taita_taveta": {
+        countyName: "Taita Taveta County",
+        zone: "Mixed Terrain (ASAL Plains & Highland Ridges)",
+        soilProfile: "Varies significantly: Rich volcanic loams in the upper Taita Hills, transitioning down to fast-draining sandy clay loams in the lower plains.",
+        crops: [
+            "Drought-tolerant early Maize (e.g., PH4 or Coast Composites)",
+            "Green Grams (Ndengu) & Cowpeas",
+            "Sweet Potatoes (Dual-purpose for food and vine groundcover)",
+            "High-value French Beans (upper runoff-irrigated zones)"
+        ],
+        plantingTime: "Optimal Window: October 5th – October 20th. Plant immediately with the first two steady rains to maximize the long seasonal rainfall profile.",
+        landPrep: "Highland slopes require contour grass strips and check-dams to prevent landslide erosion. Lower plains should utilize broad earth basins and tied-ridges to harvest flood runoff efficiently.",
+        harvestMethod: "Harvest grains as soon as physiological maturity is reached to safeguard crops against field molding. Store tightly inside Hermetic (PICS) bags placed on elevated wooden floor pallets."
     }
 };
 
