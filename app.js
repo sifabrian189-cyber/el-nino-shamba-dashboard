@@ -25,6 +25,12 @@ const mockWeatherData = {
         temp: 18.5,
         humidity: 91,
         description: "dense mist, heavy rainfall over sloped surfaces"
+    },
+    "Taita Taveta": {
+        name: "Taita Taveta Meteorological Station",
+        temp: 22.6,
+        humidity: 82,
+        description: "light orographic showers along hills, dry cloud layers over the plains"
     }
 };
 
