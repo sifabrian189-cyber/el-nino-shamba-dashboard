@@ -47,7 +47,8 @@ const agricultureData = {
         ],
         plantingTime: "Optimal Window: October 10th – October 25th. Plant immediately after the second consistent downpour.",
         landPrep: "Implement earth basins and contour ridges to trap running water. Add organic manure heavily to retain moisture when rains peak.",
-        harvestMethod: "Harvest pods manually as soon as they dry to avoid rot. Use canvas tarpaulins for sun-drying; strictly avoid drying directly on bare soil."
+        harvestMethod: "Harvest pods manually as soon as they dry to avoid rot. Use canvas tarpaulins for sun-drying; strictly avoid drying directly on bare soil.",
+        paybill: "PAYBILL: 400200 A/C: MKS-SHAMBA"
     },
     "kakamega": {
         countyName: "Kakamega & Western Region",
@@ -61,7 +62,8 @@ const agricultureData = {
         ],
         plantingTime: "Optimal Window: Late September – Mid October. Stagger plantings 7 days apart to reduce crop loss risk.",
         landPrep: "Mandatory construction of raised beds (at least 30cm high). Dig deep, clear cutoff drains around the perimeter of the shamba to channel away excess rainwater.",
-        harvestMethod: "Lift tubers immediately upon maturity; sitting in wet soil triggers rapid rot. Store harvested maize and beans on elevated wooden pallets inside well-ventilated structures."
+        harvestMethod: "Lift tubers immediately upon maturity; sitting in wet soil triggers rapid rot. Store harvested maize and beans on elevated wooden pallets inside well-ventilated structures.",
+        paybill: "PAYBILL: 400200 A/C: KKM-SHAMBA"
     },
     "nyeri": {
         countyName: "Nyeri & Central Highlands",
@@ -75,7 +77,8 @@ const agricultureData = {
         ],
         plantingTime: "Optimal Window: October 1st – October 15th. Avoid planting too late into November due to dropping temperatures.",
         landPrep: "Build or repair bench terraces. Plant Napier grass or Vetiver grass along contour lines to anchor topsoil against heavy El Niño downpours.",
-        harvestMethod: "Utilize plastic crates for delicate vegetable harvesting to avoid bruising in wet weather. Ensure immediate transport to charcoal-coolers or shaded transit areas."
+        harvestMethod: "Utilize plastic crates for delicate vegetable harvesting to avoid bruising in wet weather. Ensure immediate transport to charcoal-coolers or shaded transit areas.",
+        paybill: "PAYBILL: 400200 A/C: NYR-SHAMBA"
     },
     "taita_taveta": {
         countyName: "Taita Taveta County",
@@ -89,7 +92,8 @@ const agricultureData = {
         ],
         plantingTime: "Optimal Window: October 5th – October 20th. Plant immediately with the first two steady rains to maximize the long seasonal rainfall profile.",
         landPrep: "Highland slopes require contour grass strips and check-dams to prevent landslide erosion. Lower plains should utilize broad earth basins and tied-ridges to harvest flood runoff efficiently.",
-        harvestMethod: "Harvest grains as soon as physiological maturity is reached to safeguard crops against field molding. Store tightly inside Hermetic (PICS) bags placed on elevated wooden floor pallets."
+        harvestMethod: "Harvest grains as soon as physiological maturity is reached to safeguard crops against field molding. Store tightly inside Hermetic (PICS) bags placed on elevated wooden floor pallets.",
+        paybill: "PAYBILL: 400200 A/C: TVT-SHAMBA"
     }
 };
 
@@ -134,6 +138,28 @@ document.addEventListener("DOMContentLoaded", () => {
             cropList.innerHTML = targetData.crops
                 .map(crop => `<li>🌱 ${crop}</li>`)
                 .join('');
+
+            // Compile a highly compressed text message layout string
+const smsTemplate = `SHAMBA ADVISORY [2026 EL NIÑO]: ${targetData.countyName.toUpperCase()}
+*Crops:* ${targetData.crops[0]} & ${targetData.crops[1]}.
+*Prep:* ${targetData.landPrep.substring(0, 80)}...
+*M-Pesa:* ${targetData.paybill}`;
+
+const smsTextArea = document.getElementById("sms-text-area");
+smsTextArea.value = smsTemplate;
+
+// Wire up the Copy to Clipboard Action Button
+document.getElementById("copy-sms-btn").onclick = () => {
+    smsTextArea.select();
+    navigator.clipboard.writeText(smsTextArea.value);
+    alert("🚀 SMS advisory snippet successfully copied to clipboard!");
+};
+
+// Wire up WhatsApp API Link Click Trigger 
+document.getElementById("whatsapp-share-btn").onclick = () => {
+    const encodedText = encodeURIComponent(smsTextArea.value);
+    window.open(`https://whatsapp.com{encodedText}`, '_blank');
+};    
 
             // Smoothly remove the hidden state utility class to show dashboard
             advisoryDisplay.classList.remove("hidden");

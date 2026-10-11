@@ -414,3 +414,21 @@ input[type="password"] {
     .bar-normal { background: #e0e0e0 !important; }
     .bar-surge { background: #757575 !important; }
 }
+
+/* --- 9. SMS & M-Pesa Generator Styles --- */
+.sms-generator-card {
+    border-left-color: #25d366;
+    background-color: #f1f8e9;
+    margin-top: 1.5rem;
+}
+
+#sms-text-area:focus {
+    outline: 2px solid #2e7d32;
+}
+
+/* Hide during print operations so it doesn't clutter PDF pages */
+@media print {
+    .sms-generator-card {
+        display: none !important;
+    }
+}
