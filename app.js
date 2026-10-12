@@ -35,68 +35,137 @@ const mockWeatherData = {
 };
 
 const agricultureData = {
-    "machakos": {
-        countyName: "Machakos & Lower Eastern",
-        zone: "Arid & Semi-Arid Lands (ASAL)",
-        soilProfile: "Sandy loam, quick draining but low organic matter. Highly responsive to rainfall spikes.",
-        crops: [
-            "Green Grams (Karembo/Nylon varieties)",
-            "Short-duration Maize (e.g., Katumani Composites)",
-            "Pigeon Peas",
-            "Sweet Potatoes (Orange-Fleshed)"
-        ],
-        plantingTime: "Optimal Window: October 10th – October 25th. Plant immediately after the second consistent downpour.",
-        landPrep: "Implement earth basins and contour ridges to trap running water. Add organic manure heavily to retain moisture when rains peak.",
-        harvestMethod: "Harvest pods manually as soon as they dry to avoid rot. Use canvas tarpaulins for sun-drying; strictly avoid drying directly on bare soil.",
-        paybill: "PAYBILL: 400200 A/C: MKS-SHAMBA"
+   "machakos": {
+        en: {
+            countyName: "Machakos & Lower Eastern",
+            zone: "Arid & Semi-Arid Lands (ASAL)",
+            soilProfile: "Sandy loam, quick draining but low organic matter. Highly responsive to rainfall spikes.",
+            crops: ["Green Grams (Ndengu)", "Short-duration Maize", "Pigeon Peas", "Sweet Potatoes"],
+            plantingTime: "Optimal Window: October 10th – October 25th. Plant immediately after the second consistent downpour.",
+            landPrep: "Implement earth basins and contour ridges to trap running water. Add organic manure heavily to retain moisture when rains peak.",
+            harvestMethod: "Harvest pods manually as soon as they dry to avoid rot. Use canvas tarpaulins for sun-drying; strictly avoid drying directly on bare soil.",
+            paybill: "PAYBILL: 400200 A/C: MKS-SHAMBA"
+        },
+        sw: {
+            countyName: "Machakos na Ukambani ya Chini",
+            zone: "Maeneo Kavu na Nusu Kavu (ASAL)",
+            soilProfile: "Udongo wa kichanga na mchanga, unapitisha maji haraka lakini una mbolea kidogo. Huathiriwa haraka na kuongezeka kwa mvua.",
+            crops: ["Ndengu", "Mahindi ya Muda Mfupi (Katumani)", "Mbaazi", "Viazi Vitamu vya Njano"],
+            plantingTime: "Wakati Bora: Oktoba 10 – Oktoba 25. Panda mara baada ya mvua ya pili mfululizo kunyesha.",
+            landPrep: "Tengeneza mashimo ya kuvuna maji (earth basins) na mitaro ya mteremko ili kuzuia mmomonyoko. Weka mbolea ya kutosha ili kuhifadhi unyevu.",
+            harvestMethod: "Vuna mapema yakikauka ili kuzuia kuoza. Kausha juu ya turubai safi; usikaushe kamwe kwenye udongo wazi.",
+            paybill: "PAYBILL: 400200 A/C: MKS-SHAMBA"
+        }
     },
     "kakamega": {
-        countyName: "Kakamega & Western Region",
-        zone: "Lake Victoria Basin (High Rainfall)",
-        soilProfile: "Deep fertile clay loams. Prone to waterlogging, flash flooding, and severe leaching of nutrients.",
-        crops: [
-            "Arrowroots (Nduma - planted along drainage pathways)",
-            "High-yield Kales (Sukuma Wiki) & Cabbages",
-            "Indigenous Vegetables (Managu, Terere)",
-            "Irish Potatoes"
-        ],
-        plantingTime: "Optimal Window: Late September – Mid October. Stagger plantings 7 days apart to reduce crop loss risk.",
-        landPrep: "Mandatory construction of raised beds (at least 30cm high). Dig deep, clear cutoff drains around the perimeter of the shamba to channel away excess rainwater.",
-        harvestMethod: "Lift tubers immediately upon maturity; sitting in wet soil triggers rapid rot. Store harvested maize and beans on elevated wooden pallets inside well-ventilated structures.",
-        paybill: "PAYBILL: 400200 A/C: KKM-SHAMBA"
+        en: {
+            countyName: "Kakamega & Western Region",
+            zone: "Lake Victoria Basin (High Rainfall)",
+            soilProfile: "Deep fertile clay loams. Prone to waterlogging, flash flooding, and severe leaching of nutrients.",
+            crops: ["Arrowroots (Nduma)", "High-yield Kales (Sukuma Wiki)", "Indigenous Vegetables", "Irish Potatoes"],
+            plantingTime: "Optimal Window: Late September – Mid October. Stagger plantings 7 days apart to reduce crop loss risk.",
+            landPrep: "Mandatory construction of raised beds (at least 30cm high). Dig deep, clear cutoff drains around the perimeter of the shamba to channel away excess rainwater.",
+            harvestMethod: "Lift tubers immediately upon maturity; sitting in wet soil triggers rapid rot. Store harvested maize and beans on elevated wooden pallets inside well-ventilated structures.",
+            paybill: "PAYBILL: 400200 A/C: KKM-SHAMBA"
+        },
+        sw: {
+            countyName: "Kakamega na Ukanda wa Magharibi",
+            zone: "Bonde la Ziwa Victoria (Mvua Nyingi)",
+            soilProfile: "Udongo wa tifutifu wa mfinyanzi wenye rutuba tele. Huwa na hatari kubwa ya kujaa maji na mmomonyoko wa virutubisho.",
+            crops: ["Nduma", "Sukuma Wiki ya Mavuno Mengi", "Mboga za Kienyeji (Managu, Terere)", "Viazi Mviringo"],
+            plantingTime: "Wakati Bora: Mwishoni mwa Septemba hadi Katikati ya Oktoba. Achanisha siku za kupanda kwa wiki moja ili kupunguza athari.",
+            landPrep: "Ni lazima kutengeneza matuta yaliyoinuliwa (angalau sentimita 30). Chimba mitaro mirefu ya mifereji pembezoni mwa shamba ili kupitisha maji ya ziada.",
+            harvestMethod: "Vuna viazi na nduma mara tu vinapokomaa; vikikaa kwenye udongo ulioloana vitaoza haraka. Hifadhi mahindi juu ya chanja zilizoinuliwa.",
+            paybill: "PAYBILL: 400200 A/C: KKM-SHAMBA"
+        }
     },
     "nyeri": {
-        countyName: "Nyeri & Central Highlands",
-        zone: "High-Altitude Highland",
-        soilProfile: "Volcanic soils. Highly fertile but subject to extreme soil erosion and landslides on sloped terrains.",
-        crops: [
-            "Snow Peas & Sugar Snaps",
-            "Mid-altitude Maize Hybrids",
-            "Spinach & Broccoli",
-            "Bush Beans"
-        ],
-        plantingTime: "Optimal Window: October 1st – October 15th. Avoid planting too late into November due to dropping temperatures.",
-        landPrep: "Build or repair bench terraces. Plant Napier grass or Vetiver grass along contour lines to anchor topsoil against heavy El Niño downpours.",
-        harvestMethod: "Utilize plastic crates for delicate vegetable harvesting to avoid bruising in wet weather. Ensure immediate transport to charcoal-coolers or shaded transit areas.",
-        paybill: "PAYBILL: 400200 A/C: NYR-SHAMBA"
+        en: {
+            countyName: "Nyeri & Central Highlands",
+            zone: "High-Altitude Highland",
+            soilProfile: "Volcanic soils. Highly fertile but subject to extreme soil erosion and landslides on sloped terrains.",
+            crops: ["Snow Peas", "Mid-altitude Maize Hybrids", "Spinach & Broccoli", "Bush Beans"],
+            plantingTime: "Optimal Window: October 1st – October 15th. Avoid planting too late into November due to dropping temperatures.",
+            landPrep: "Build or repair bench terraces. Plant Napier grass or Vetiver grass along contour lines to anchor topsoil against heavy El Niño downpours.",
+            harvestMethod: "Utilize plastic crates for delicate vegetable harvesting to avoid bruising in wet weather. Ensure immediate transport to charcoal-coolers or shaded transit areas.",
+            paybill: "PAYBILL: 400200 A/C: NYR-SHAMBA"
+        },
+        sw: {
+            countyName: "Nyeri na Nyanda za Juu Kati",
+            zone: "Eneo la Nyanda za Juu",
+            soilProfile: "Udongo wa volkano wenye rutuba ya juu lakini uko hatarini kwa mmomonyoko mkubwa wa udongo na maporomoko kwenye miteremko.",
+            crops: ["Mbaazi za Snow Peas", "Mahindi ya Maeneo ya Juu", "Spinach na Brokoli", "Maharagwe ya Kawaida"],
+            plantingTime: "Wakati Bora: Oktoba 1 hadi Oktoba 15. Epuka kupanda marehemu mnamo Novemba kwa sababu ya baridi kali.",
+            landPrep: "Jenga au ukarabati matuta ya mteremko (bench terraces). Panda majani ya Napier au Vetiver kando ya miteremko ili kushikilia udongo wa juu.",
+            harvestMethod: "Tumia kreti za plastiki kuvuna mboga laini ili zisiharibike kwenye mvua. Safirisha haraka hadi kwenye ghala baridi za mkaa.",
+            paybill: "PAYBILL: 400200 A/C: NYR-SHAMBA"
+        }
     },
     "taita_taveta": {
-        countyName: "Taita Taveta County",
-        zone: "Mixed Terrain (ASAL Plains & Highland Ridges)",
-        soilProfile: "Varies significantly: Rich volcanic loams in the upper Taita Hills, transitioning down to fast-draining sandy clay loams in the lower plains.",
-        crops: [
-            "Drought-tolerant early Maize (e.g., PH4 or Coast Composites)",
-            "Green Grams (Ndengu) & Cowpeas",
-            "Sweet Potatoes (Dual-purpose for food and vine groundcover)",
-            "High-value French Beans (upper runoff-irrigated zones)"
-        ],
-        plantingTime: "Optimal Window: October 5th – October 20th. Plant immediately with the first two steady rains to maximize the long seasonal rainfall profile.",
-        landPrep: "Highland slopes require contour grass strips and check-dams to prevent landslide erosion. Lower plains should utilize broad earth basins and tied-ridges to harvest flood runoff efficiently.",
-        harvestMethod: "Harvest grains as soon as physiological maturity is reached to safeguard crops against field molding. Store tightly inside Hermetic (PICS) bags placed on elevated wooden floor pallets.",
-        paybill: "PAYBILL: 400200 A/C: TVT-SHAMBA"
+        en: {
+            countyName: "Taita Taveta County",
+            zone: "Mixed Terrain (ASAL Plains & Highland Ridges)",
+            soilProfile: "Varies significantly: Rich volcanic loams in the upper Taita Hills, transitioning down to fast-draining sandy clay loams in the lower plains.",
+            crops: ["Drought-tolerant early Maize", "Green Grams (Ndengu) & Cowpeas", "Sweet Potatoes", "French Beans"],
+            plantingTime: "Optimal Window: October 5th – October 20th. Plant immediately with the first two steady rains to maximize the seasonal profile.",
+            landPrep: "Highland slopes require contour grass strips and check-dams to prevent landslide erosion. Lower plains should utilize broad earth basins and tied-ridges to harvest flood runoff efficiently.",
+            harvestMethod: "Harvest grains as soon as physiological maturity is reached to safeguard crops against field molding. Store tightly inside Hermetic (PICS) bags placed on elevated wooden floor pallets.",
+            paybill: "PAYBILL: 400200 A/C: TVT-SHAMBA"
+        },
+        sw: {
+            countyName: "Kaunti ya Taita Taveta",
+            zone: "Mchanganyiko (Miteremko ya Juu na Tambarare Kavu)",
+            soilProfile: "Inatofautiana: Tifutifu yenye rutuba kwenye Milima ya Taita, na udongo wa mchanga unaopitisha maji haraka kwenye nyanda za chini.",
+            crops: ["Mahindi yanayovumilia ukame", "Ndengu na Kunde", "Viazi Vitamu", "Maharagwe ya Mishiri (Kandoni mwa Milima)"],
+            plantingTime: "Wakati Bora: Oktoba 5 hadi Oktoba 20. Panda mapema baada ya mvua mbili za kwanza za mfululizo kunyesha.",
+            landPrep: "Miteremko ya milimani inahitaji upandaji wa nyasi kando ya mistari na vizuizi vya maji. Nyanda za chini zitumie mashimo mapana kuvuna maji.",
+            harvestMethod: "Vuna nafaka mara tu zinapokomaa ili kuzuia ukungu shambani kutokana na unyevu mwingi. Hifadhi kwenye mifuko ya kisasa ya Hermetic (PICS).",
+            paybill: "PAYBILL: 400200 A/C: TVT-SHAMBA"
+        }
     }
 };
 
+// Global Translation Object for Layout Labels
+const uiTranslations = {
+    en: {
+        "app-title": "🌱 Shamba El Niño 2026",
+        "app-subtitle": "Smart Farming Advisory Dashboard for Kenya's Short Rains Season",
+        "select-label": "Select Target Agricultural Zone:",
+        "header-soil": "⏳ Soil Profile & Condition",
+        "header-crops": "🌾 Best Crops to Plant",
+        "header-planting": "📅 Ideal Planting Window",
+        "header-prep": "🚜 Land Prep & Infrastructure",
+        "header-harvest": "🧺 Harvesting & Safe Storage",
+        "sim-title": "🌊 Quick Drainage Tool",
+        "sim-desc": "Simulate how your farm's soil will handle massive El Niño runoff.",
+        "sim-label": "What is your shamba's primary soil type?",
+        "sim-btn": "Analyze Drainage Risk",
+        "sms-title": "📨 SMS & M-Pesa Format Generator",
+        "sms-desc": "Convert this county advisory into a short text message format with standard checkout reminders for field distribution.",
+        "sms-btn-copy": "📋 Copy SMS to Clipboard"
+    },
+    sw: {
+        "app-title": "🌱 Shamba El Niño 2026",
+        "app-subtitle": "Ushauri wa Kilimo cha Busara Wakati wa Mvua Fupi za El Niño Kenya",
+        "select-label": "Chagua Eneo Lako la Kilimo (Kaunti):",
+        "header-soil": "⏳ Hali na Tabia ya Udongo",
+        "header-crops": "🌾 Mboga na Mazao Bora ya Kupanda",
+        "header-planting": "📅 Kipindi Bora cha Kupanda Malengo",
+        "header-prep": "🚜 Maandalizi ya Shamba na Mitaro",
+        "header-harvest": "🧺 Uvunaji na Uhifadhi Salama wa Mazao",
+        "sim-title": "🌊 Chombo cha Kupima Unyevu wa Udongo",
+        "sim-desc": "Pima jinsi udongo wako utakavyokabiliana na mafuriko na mtiririko mkubwa wa maji ya El Niño.",
+        "sim-label": "Je, shamba lako lina aina gani ya udongo?",
+        "sim-btn": "Changanua Hatari ya Udongo",
+        "sms-title": "📨 Chombo cha Kutengeneza Ujumbe wa SMS na M-Pesa",
+        "sms-desc": "Badilisha ushauri huu kuwa ujumbe mfupi wa maandishi (SMS) unaoweza kutumwa kwa wakulima mashambani kwa urahisi.",
+        "sms-btn-copy": "📋 Nakili SMS kwenye Simu Yako"
+    }
+};
+
+// Track current global language state active
+let currentLanguage = "en"; 
+        
 // --- Step 4: UI Controller & Event Listeners ---
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -123,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.print(); // Triggers native browser print dialog (Save as PDF profile)
 });
         const selectedKey = event.target.value;
-        const targetData = agricultureData[selectedKey];
+        const targetData = agricultureData[selectedKey] ? agricultureData[selectedKey][currentLanguage] : null;
 
         if (targetData) {
             // Update Text Nodes dynamically
@@ -140,13 +209,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 .join('');
 
             // Compile a highly compressed text message layout string
-const smsTemplate = `SHAMBA ADVISORY [2026 EL NIÑO]: ${targetData.countyName.toUpperCase()}
-*Crops:* ${targetData.crops[0]} & ${targetData.crops[1]}.
-*Prep:* ${targetData.landPrep.substring(0, 80)}...
-*M-Pesa:* ${targetData.paybill}`;
-
-const smsTextArea = document.getElementById("sms-text-area");
-smsTextArea.value = smsTemplate;
+const smsTemplate = currentLanguage === "en" 
+            ? `SHAMBA ADVISORY [2026 EL NIÑO]: ${targetData.countyName.toUpperCase()}\n*Crops:* ${targetData.crops.join(', ')}.\n*M-Pesa:* ${targetData.paybill}`
+            : `USHAURI WA KILIMO [EL NIÑO 2026]: ${targetData.countyName.toUpperCase()}\n*Mazao:* ${targetData.crops.join(', ')}.\n*M-Pesa:* ${targetData.paybill}`;
+            
+const smsTextArea = document.getElementById("sms-text-area").value = smsTemplate;
+advisoryDisplay.classList.remove("hidden");
 
 // Wire up the Copy to Clipboard Action Button
 document.getElementById("copy-sms-btn").onclick = () => {
@@ -315,3 +383,27 @@ document.getElementById("fetch-weather-btn").addEventListener("click", async () 
         `;
     }
 });
+
+// --- Core Dynamic Language Switcher Routine Router ---
+function setLanguage(langCode) {
+    currentLanguage = langCode;
+    
+    // 1. Update active styling across navigation header toggle buttons
+    document.getElementById("btn-lang-en").classList.toggle("active", langCode === "en");
+    document.getElementById("btn-lang-sw").classList.toggle("active", langCode === "sw");
+    
+    // 2. Loop through and map translations over static DOM data attributes
+    const elementsToTranslate = document.querySelectorAll("[data-i18n]");
+    elementsToTranslate.forEach(element => {
+        const translationKey = element.getAttribute("data-i18n");
+        if (uiTranslations[langCode] && uiTranslations[langCode][translationKey]) {
+            element.innerText = uiTranslations[langCode][translationKey];
+        }
+    });
+    
+    // 3. Force active reload of select drop menu data if a county is currently open
+    const countySelector = document.getElementById("county-selector");
+    if (countySelector.value) {
+        countySelector.dispatchEvent(new Event('change'));
+    }
+}

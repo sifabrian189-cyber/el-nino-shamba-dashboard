@@ -11,8 +11,14 @@
     <!-- Main Navigation Header -->
     <header class="dashboard-header">
         <div class="header-container">
-            <h1>🌱 Shamba El Niño 2026</h1>
-            <p>Smart Farming Advisory Dashboard for Kenya's Short Rains Season</p>
+            <h1 data-i18n="app-title">🌱 Shamba El Niño 2026</h1>
+            <p data-i18n="app-subtitle">Smart Farming Advisory Dashboard for Kenya's Short Rains Season</p>
+
+            <!-- Language Switcher Buttons Section -->
+        <div class="language-switcher" style="margin-top: 1rem; display: flex; justify-content: center; gap: 0.5rem;">
+            <button type="button" class="lang-btn active" onclick="setLanguage('en')" id="btn-lang-en">English</button>
+            <button type="button" class="lang-btn" onclick="setLanguage('sw')" id="btn-lang-sw">Kiswahili</button>
+        </div>
         </div>
     </header>
 
@@ -67,7 +73,7 @@
         <!-- Controls Section (County Selection) -->
         <section class="control-panel">
             <div class="card select-card">
-                <label for="county-selector">Select Target Agricultural Zone:</label>
+                <label for="county-selector" data-i18n="county-selector-label">Select Target Agricultural Zone:</label>
                 <select id="county-selector">
                     <option value="" disabled selected>-- Choose a Region / County --</option>
                     <option value="machakos">Machakos & Lower Eastern (ASAL Zone)</option>
@@ -145,11 +151,11 @@
 
             <!-- Dashboard Banner Card -->
             <div class="card banner-card">
-                <h2 id="county-title">County Name</h2>
-                <p class="badge" id="county-zone">Climate Zone</p>
+                <h2 id="county-title" data-i18n="county-title">County Name</h2>
+                <p class="badge" id="county-zone" data-i18n="county-zone">Climate Zone</p>
             </div>
 <!-- New Print Button Element -->
-    <button type="button" id="print-advisory-btn" class="print-btn">
+    <button type="button" id="print-advisory-btn" class="print-btn" data-i18n="print-advisory-btn">
         🖨️ Save as Print/PDF Sheet
     </button>
 </div>
@@ -159,13 +165,13 @@
                 
                 <!-- Card 1: Soil Profile -->
                 <div class="card advisory-card">
-                    <h3>⏳ Soil Profile & Condition</h3>
-                    <p id="soil-profile">Loading profile...</p>
+                    <h3 data-i18n="header-soil">⏳ Soil Profile & Condition</h3>
+                    <p id="soil-profile" data-i18n="soil-profile">Loading profile...</p>
                 </div>
 
                 <!-- Card 2: Crop Recommendations -->
                 <div class="card advisory-card">
-                    <h3>🌾 Best Crops to Plant</h3>
+                    <h3 data-i18n="header-crops">🌾 Best Crops to Plant</h3>
                     <ul id="crop-list" class="styled-list">
                         <!-- Dynamic items injected here -->
                     </ul>
@@ -173,35 +179,35 @@
 
                 <!-- Card 3: Planting Window -->
                 <div class="card advisory-card highlight-card">
-                    <h3>📅 Ideal Planting Window</h3>
-                    <p id="planting-time">Loading timeline...</p>
+                    <h3 data-i18n="header-planting">📅 Ideal Planting Window</h3>
+                    <p id="planting-time" data-i18n="planting-time">Loading timeline...</p>
                 </div>
 
                 <!-- Card 4: Land Management -->
                 <div class="card advisory-card">
-                    <h3>🚜 Land Prep & Infrastructure</h3>
-                    <p id="land-prep">Loading directions...</p>
+                    <h3 data-i18n="header-land">🚜 Land Prep & Infrastructure</h3>
+                    <p id="land-prep" data-i18n="land-prep">Loading directions...</p>
                 </div>
 
                 <!-- Card 5: Post-Harvest Yield Preservation -->
                 <div class="card advisory-card alert-card">
-                    <h3>🧺 Harvesting & Safe Storage</h3>
-                    <p id="harvest-method">Loading techniques...</p>
+                    <h3 data-i18n="header-harvest">🧺 Harvesting & Safe Storage</h3>
+                    <p id="harvest-method" data-i18n="harvest-method">Loading techniques...</p>
                 </div>
             </div>
             
      <div class="card sms-generator-card">
-    <h3>📨 SMS & M-Pesa Format Generator</h3>
-    <p>Convert this county advisory into a short text message format with standard checkout reminders for field distribution.</p>
+    <h3 data-i18n="sms-generator-title">📨 SMS & M-Pesa Format Generator</h3>
+    <p data-i18n="sms-generator-description">Convert this county advisory into a short text message format with standard checkout reminders for field distribution.</p>
     
     <div class="sms-output-box">
         <textarea id="sms-text-area" readonly rows="4" style="width:100%; padding:0.8rem; border-radius:8px; border:1px solid #ccc; font-family:monospace; resize:none; margin:1rem 0; background:#fafafa;"></textarea>
         
         <div style="display:flex; gap:1rem;">
-            <button type="button" id="copy-sms-btn" style="background-color: #2e7d32;">
+            <button type="button" id="copy-sms-btn"  style="background-color: #2e7d32;" data-i18n="copy-sms-btn">
                 📋 Copy SMS to Clipboard
             </button>
-            <button type="button" id="whatsapp-share-btn" style="background-color: #25d366; width: auto; padding: 0.8rem 1.2rem;">
+            <button type="button" id="whatsapp-share-btn" style="background-color: #25d366; width: auto; padding: 0.8rem 1.2rem;" data-i18n="whatsapp-share-btn">
                 💬 Share on WhatsApp
             </button>
         </div>
@@ -213,18 +219,18 @@
         <!-- Soil Drainage Simulation Tool Widget -->
         <section class="simulator-panel">
             <div class="card simulator-card">
-                <h3>🌊 Quick Drainage Tool</h3>
-                <p>Simulate how your farm's soil will handle massive El Niño runoff.</p>
+                <h3 data-i18n="sim-title">🌊 Quick Drainage Tool</h3>
+                <p data-i18n="sim-description">Simulate how your farm's soil will handle massive El Niño runoff.</p>
                 
                 <form id="drainage-form" onsubmit="event.preventDefault();">
-                    <label for="soil-type">What is your shamba's primary soil type?</label>
+                    <label for="soil-type" data-i18n="soil-type-label">What is your shamba's primary soil type?</label>
                     <select id="soil-type">
-                        <option value="clay">Black Cotton Soil / Heavy Clay</option>
-                        <option value="loam">Red Volcanic / Loam Soil</option>
-                        <option value="sandy">Sandy / Light Soil</option>
+                        <option value="clay" data-i18n="soil-type-clay">Black Cotton Soil / Heavy Clay</option>
+                        <option value="loam" data-i18n="soil-type-loam">Red Volcanic / Loam Soil</option>
+                        <option value="sandy" data-i18n="soil-type-sandy">Sandy / Light Soil</option>
                     </select>
                     
-                    <button type="button" id="simulate-btn">Analyze Drainage Risk</button>
+                    <button type="button" id="simulate-btn" data-i18n="simulate-btn">Analyze Drainage Risk</button>
                 </form>
 
                 <div id="simulation-result" class="simulation-result hidden">
